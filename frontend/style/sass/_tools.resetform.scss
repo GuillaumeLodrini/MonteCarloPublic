@@ -1,0 +1,64 @@
+input, textarea, form{
+	color:$color-grey-text;
+	font-family: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	outline: none;
+	border:transparent;
+	background: none;
+}
+
+textarea{
+	resize: vertical;
+}
+
+button:focus{
+	outline: none;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    rgba($color-placeholder,0.8);
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    rgba($color-placeholder,0.8);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    rgba($color-placeholder,0.8);
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:    rgba($color-placeholder,0.8);
+}
+
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+    -webkit-text-fill-color: darken($color-grey-text, 25%)!important;
+}
+
+.input--white:-webkit-autofill,
+.input--white:-webkit-autofill:hover,
+.input--white:-webkit-autofill:focus,
+.input--white:-webkit-autofill:active {
+    -webkit-transition-delay: 99999s;
+}
+
+
+select, button, form fieldset, input[type="checkbox"], input[type="radio"]{
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+		background: transparent;
+		border: none;
+		border-radius: 0px;
+		background: none;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple{
+
+}

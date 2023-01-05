@@ -1,0 +1,5 @@
+<ul class="message__container">
+    {% for message in messages_list %}
+        <li{% if message.tags %} class="message message--{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>

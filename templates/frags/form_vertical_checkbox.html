@@ -1,0 +1,16 @@
+{% load widget_tweaks i18n %}
+
+{% for checkbox in wizard.form.period %}
+    <div class="form__time">
+        <label class="label--classic" for="{{ checkbox.id_for_label }}">{{ checkbox.choice_label }}</label>
+        {{ checkbox.tag }}
+    </div>
+{% endfor %}
+
+{% if form_input.errors %}
+    <div class="input__error input__error--small">
+        {% for error in form_input.errors %}
+            {{ error|escape }}
+        {% endfor %}
+    </div>
+{% endif %}

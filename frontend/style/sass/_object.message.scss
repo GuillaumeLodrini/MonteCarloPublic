@@ -1,0 +1,64 @@
+.message__container{
+  text-align: center;
+  font-size: make_em(16,15);
+  font-weight: 700;
+}
+
+.message{
+  display: block;
+  padding:make_em(10,16) make_em(15,16);
+  color: white;
+  line-height: 1.2;
+
+  &+&{
+    margin-top: 5px;
+  }
+}
+
+.message--error{
+  background: $color-danger;
+}
+
+.message--success{
+  background: $color-success;
+}
+
+.message--info{
+  background-color: grey;
+}
+
+.message--warning{
+  background-color: $color-wraning;
+}
+
+.message__container--form{
+  font-size: make_em(15,15);
+  margin-bottom: make_em(20,15);
+
+  .message--error{
+    border-radius: 3px;
+    background: lighten($color-danger, 30%);
+    color: $color-danger;
+  }
+}
+
+//INPUT ERROR
+.input--error{
+  border-color: lighten($color-danger, 25%) !important;
+
+  &:focus{
+    border-color: $color-danger !important;
+  }
+}
+
+.input__error{
+  color: $color-danger;
+
+  & > p{
+    margin-top: 5px;
+  }
+}
+
+.form__label--error{
+  color: $color-danger;
+}

@@ -1,0 +1,17 @@
+{% load widget_tweaks i18n %}
+
+{% for checkbox in form_input %}
+    <div class="input--choice {% if form_input.errors %}input--error{% endif %}">
+        <label class="checkbox__label" for="{{ checkbox.id_for_label }}">
+            {{ checkbox.tag }} <span class="checkbox__text">{{ checkbox.choice_label }}</span>
+        </label>
+
+        {% if forloop.last and form_input.errors %}
+            <div class="input__error input__error--small">
+                {% for error in form_input.errors %}
+                    {{ error|escape }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}

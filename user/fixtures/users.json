@@ -1,0 +1,1 @@
+[{"model": "user.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$260000$EPmAeoMWvqdtDnS12wyzXl$ihw84sPyUkVqfdtWsldEZPqACIiC51hMHwQyaMbtY2g=", "last_login": null, "is_superuser": true, "first_name": "", "last_name": "", "is_staff": true, "is_active": true, "date_joined": "2022-01-01T00:00:00.000Z", "email": "deuse@deuse.be", "groups": [], "user_permissions": []}}]

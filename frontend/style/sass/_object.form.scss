@@ -1,0 +1,113 @@
+.form__label{
+    display: block;
+    font-size: make_em(15,14);
+    font-weight: 500;
+    margin-bottom: make_em(5,15);
+    padding-left: make_em(5,15);
+    color: $color-primary;
+}
+
+.input{
+    border: 1px solid $color-grey-border;
+    padding: make_em(12,14) make_em(14,14);
+    border-radius: 10px;
+    width: 100%;
+    color: $color-grey-input;
+    font-weight: 400;
+    line-height: 1.4;
+    transition: all 0.2s ease-in-out;
+
+    &::placeholder, &::-webkit-datetime-edit-fields-wrapper{
+        color: $color-placeholder;
+        font-weight: 300;
+    }
+
+    &:focus{
+        background-color: rgba($color-bg, 0.5)
+    }
+}
+
+.input--disabled{
+    background-color: $color-bg;
+    border: none;
+    color: $color-grey-text;
+    min-height: 45.6px;
+}
+
+select{
+    padding-right: make_em(40,14);
+    background-position: right make_em(14,14) center;
+    background-repeat: no-repeat;
+}
+
+
+.input--full{
+    width: 100%;
+}
+
+.input--inline{
+    width: auto;
+}
+
+.input--small{
+    width: percentage(110/500);
+    flex-shrink: 0;
+}
+
+.input--full+.input--small{
+    margin-left: percentage(40/1040);
+}
+
+.form__header{
+    .title+p, .title+.container__radio{
+        margin-top: make_em(10,14);
+    }
+
+    p{
+        font-weight: 400;
+        max-width: 580px;
+    }
+
+    &+p{
+        margin-top: make_em(10,14);
+        color: #f2b827
+    }
+}
+
+.form__legend{
+    font-size: make_em(17,14);
+    font-weight: 500;
+    color: $color-primary;
+    margin-bottom: make_em(10,17);
+    line-height: 1.2;
+}
+
+.form__line+.form__line{
+    margin-top: make_em(20,14);
+}
+
+.form__col{
+    width: percentage(500/1040);
+}
+
+.form__part{
+    &+&{
+        margin-top: make_em(40,14);
+    }
+    margin-top: make_em(20,14);
+}
+
+.warning--message{
+    margin-top: make_em(20,14);
+    color: #f2b827
+}
+
+.form__part--disable{
+    display: block;
+
+    &+&{
+        padding-top: make_em(30,14);
+        margin-top: make_em(30,14);
+        border-top: 1px solid $color-grey-border;
+    }
+}

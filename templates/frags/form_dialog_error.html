@@ -1,0 +1,7 @@
+<!-- Error messages box for non field errors specificaly -->
+
+<ul class="message__container message__container--form">
+    {% for error in errors_list %}
+        <li class="message message--error">{{ error|escape }}</li>
+    {% endfor %}
+</ul>

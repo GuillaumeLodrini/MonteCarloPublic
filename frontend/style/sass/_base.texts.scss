@@ -1,0 +1,11 @@
+.text--break{
+    display: block;
+}
+
+.block__text{
+    line-height: 1.8;
+
+    p+p{
+        margin-top: make_em(15,14);
+    }
+}

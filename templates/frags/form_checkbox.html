@@ -1,0 +1,19 @@
+{% load widget_tweaks i18n %}
+
+{% trans input_label as text_label %}
+
+{% for checkbox in form_input %}
+    <div class="input--choice {% if form_input.errors %}input--error{% endif %}">
+        <label class="checkbox__label" for="{{ form_input.auto_id }}">
+            {{ checkbox.tag }} <span class="checkbox__text">{{ text_label|default:form_input.label }}</span>
+        </label>
+
+        {% if forloop.last and form_input.errors %}
+            <div class="input__error input__error--small">
+                {% for error in form_input.errors %}
+                    {{ error|escape }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}

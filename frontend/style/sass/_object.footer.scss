@@ -1,0 +1,25 @@
+.footer{
+    margin-top: auto;
+}
+
+.footer__monte{
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: make_em(15,15) 0;
+    font-weight: 300;
+
+    & > a, & > a:hover{
+        color: $color-grey-text;
+    }
+
+    span{
+        margin-right: 3px;
+    }
+
+    img{
+        height: 15px;
+        width: auto;
+    }
+}

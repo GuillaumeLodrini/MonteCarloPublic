@@ -1,0 +1,27 @@
+@mixin transition_css($property,$duration,$timing-function,$delay){
+
+  -moz-transition:$property $duration $timing-function $delay;
+  -ms-transition:$property $duration $timing-function $delay;
+  -webkit-transition:$property $duration $timing-function $delay;
+  transition: $property $duration $timing-function $delay;
+}
+
+@mixin background_size($path,$repeat,$horizontal,$vertical,$size){
+	background: url($path) $repeat $horizontal $vertical;
+    background-size: $size;
+    -webkit-background-size: $size;
+}
+
+@function make_em($number,$parent){
+  @return #{$number/$parent}em;
+}
+
+
+@mixin prefix($declarations, $prefixes: ()) {
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+    #{$property}: $value;
+  }
+}

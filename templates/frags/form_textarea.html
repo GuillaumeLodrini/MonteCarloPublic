@@ -1,0 +1,15 @@
+{% load widget_tweaks i18n %}
+
+{% trans input_placeholder as text_placeholder %}
+
+{% with WIDGET_ERROR_CLASS='input--error' %}
+    {% render_field form_input class=input_class placeholder=text_placeholder %}
+
+    {% if form_input.errors %}
+        <div class="input__error input__error--small">
+            {% for error in form_input.errors %}
+                {{ error|escape }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}

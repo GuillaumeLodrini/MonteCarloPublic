@@ -1,0 +1,17 @@
+.wrapper--centered{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrapper--margin{
+  margin-left: make_em(70,14);
+  margin-right: make_em(70,14);
+}
+
+.wrapper--padding__left{
+  padding-left: make_em(30,14);
+}
+
+.wrapper--padding__right{
+  padding-right: make_em(30,14);
+}

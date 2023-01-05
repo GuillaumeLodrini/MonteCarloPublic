@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% load settings_tags cms_tags files_tags %}
+{% load static %}
+{% load render_bundle from webpack_loader %}
+
+{% block header %}
+<div class="header">
+    <div class="header__content wrapper wrapper--centered">
+        <div class="header__breadcrumb">
+            <img class="header--img" src="{% static 'img/logo__somja.png' %}" alt="Logo Somja"/>
+        </div>
+    </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+    <div class="hero-container">
+        <div class="column column--centered-w">
+            <h1 class="hero-title"> Monte Carlo simulation tool for road accidents </h1>
+            <div class="hero-text"> 
+                <p class="hero-line"> This tool aims at evaluating the initial speeds of vehicle during a road accident. It works by repeatedly computing the momentum conservation equations whith varibale data to aggregates the resulting speeds into a probability density function </p>
+                <p class="hero-line"> Note that the ouputs provided by the simulations are estimations and should be analyzed carefully </p>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="{% url 'index' %}">
+        {% csrf_token %}
+        <div class="row wrapper--margin">
+            <div class="column column--row wrapper--padding__right">
+                <h2>Vehicle 1</h2>
+                <div class="sub--row form__part">
+                    <div class="row--item__large">
+                        {% include 'frags/form_inputs.html' with form_input=form.d1 input_class="input" input_placeholder="Distance to final position" %}
+                    </div>
+                </div>
+                <div class="sub--row form__part">
+                    <div class="row--item__large">
+                        {% include 'frags/form_inputs.html' with form_input=form.m1Base input_class="input" input_placeholder="Mass" %}
+                    </div>
+                    <div class="row--item__small">
+                        {% include 'frags/form_inputs.html' with form_input=form.m1Delta input_class="input" input_placeholder="Mass delta" %}
+                    </div>
+                </div>
+                <div class="sub--row form__part">
+                    <div class="row--item__large">
+                        {% include 'frags/form_inputs.html' with form_input=form.theta1Base input_class="input" input_placeholder="Pre-impact angle" %}
+                    </div>
+                    <div class="row--item__small">
+                        {% include 'frags/form_inputs.html' with form_input=form.theta1Delta input_class="input" input_placeholder="Pre-impact angle delta" %}
+                    </div>
+                </div>
+                <div class="sub--row form__part">
+                    <div class="row--item__large">
+                        {% include 'frags/form_inputs.html' with form_input=form.theta1fBase input_class="input" input_placeholder="Post-impact angle" %}
+                    </div>
+                    <div class="row--item__small">
+                        {% include 'frags/form_inputs.html' with form_input=form.theta1fDelta input_class="input" input_placeholder="Post-impact angle delta" %}
+                    </div>
+                </div>
+                <div class="sub--row form__part">
+                    <div class="row--item__large">
+                        {% include 'frags/form_inputs.html' with form_input=form.a1Base input_class="input" input_placeholder="Deceleration" %}
+                    </div>
+                    <div class="row--item__small">
+                        {% include 'frags/form_inputs.html' with form_input=form.a1Delta input_class="input" input_placeholder="Deceleration delta" %}
+                    </div>
+                </div>
+            </div>
+            <div class="column column--row wrapper--padding__left">
+                <h2>Vehicle 2</h2>
+                <div class="sub--row form__part">
+                    <div class="row--item__large">
+                        {% include 'frags/form_inputs.html' with form_input=form.d2 input_class="input" input_placeholder="Distance to final position" %}
+                    </div>
+                </div>
+                <div class="sub--row form__part">
+                    <div class="row--item__large">
+                        {% include 'frags/form_inputs.html' with form_input=form.m2Base input_class="input" input_placeholder="Mass" %}
+                    </div>
+                    <div class="row--item__small">
+                        {% include 'frags/form_inputs.html' with form_input=form.m2Delta input_class="input" input_placeholder="Mass delta" %}
+                    </div>
+                </div>
+                <div class="sub--row form__part">
+                    <div class="row--item__large">
+                        {% include 'frags/form_inputs.html' with form_input=form.theta2Base input_class="input" input_placeholder="Pre-impact angle" %}
+                    </div>
+                    <div class="row--item__small">
+                        {% include 'frags/form_inputs.html' with form_input=form.theta2Delta input_class="input" input_placeholder="Pre-impact angle delta" %}
+                    </div>
+                </div>
+                <div class="sub--row form__part">
+                    <div class="row--item__large">
+                        {% include 'frags/form_inputs.html' with form_input=form.theta2fBase input_class="input" input_placeholder="Post-impact angle" %}
+                    </div>
+                    <div class="row--item__small">
+                        {% include 'frags/form_inputs.html' with form_input=form.theta2fDelta input_class="input" input_placeholder="Post-impact angle delta" %}
+                    </div>
+                </div>
+                <div class="sub--row form__part">
+                    <div class="row--item__large">
+                        {% include 'frags/form_inputs.html' with form_input=form.a2Base input_class="input" input_placeholder="Deceleration" %}
+                    </div>
+                    <div class="row--item__small">
+                        {% include 'frags/form_inputs.html' with form_input=form.a2Delta input_class="input" input_placeholder="Deceleration delta" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column row--reversed">
+            <input type="submit" class="btn btn--primary wrapper--margin wrapper--padding__all" value="{% translate 'Start simulation' %}" title="{% translate 'Start simulation' %}">
+        </div>
+        <div class="wrapper--margin">
+            <div class="row--space_between">
+                {% if uri1 %}
+                    <img src="data:image/png;base64,{{ uri1 }}">
+                {% endif %}
+                {% if uri2 %}
+                    <img src="data:image/png;base64,{{ uri2 }}">
+                {% endif %}
+            </div>
+            {% if uri3 %}
+                <img src="data:image/png;base64,{{ uri3 }}">
+            {% endif %}
+        </div>
+    </form>
+{% endblock %}

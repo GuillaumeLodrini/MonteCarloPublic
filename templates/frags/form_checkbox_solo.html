@@ -1,0 +1,16 @@
+{% load widget_tweaks i18n %}
+
+{% with container_class as container_classes %}
+    <div class="{{ container_classes }}">
+        {% render_field checkbox class=class %}
+        <label for="{{ checkbox.id_for_label }}">{{ checkbox.label }}</label>
+    </div>
+{% endwith %}
+
+{% if forloop.last and form_input.errors %}
+    <div class="input__error input__error--small">
+        {% for error in form_input.errors %}
+            {{ error|escape }}
+        {% endfor %}
+    </div>
+{% endif %}

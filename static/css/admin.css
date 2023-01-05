@@ -1,0 +1,238 @@
+/** Variables - Where the most of the magic happens **/
+
+:root {
+	--color--primary:#4A90E2;
+	--color--secondary:#00B8DC;
+}
+
+/** Style global **/
+
+* {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+body {
+	background:#f9f9f9;
+}
+
+button, a, input[type="submit"] {
+	-webkit-transition: all 0.25s ease-in-out 0s;
+	transition: all 0.25s ease-in-out 0s;
+}
+
+#container {
+	min-height: 100vh;
+	vertical-align: top;
+}
+
+body.login #container {
+	min-height: inherit;
+	justify-content: center;
+}
+
+body.login #container #branding {
+	float: none;
+	width: 100%;
+	text-align: center;
+}
+
+body.login #container .admin__footer {
+	text-align: center;
+}
+
+.module h2, .module caption, .inline-group h2 {
+	background: white;
+	color:black;
+	font-weight: bold;
+	font-family: 'Baloo', cursive;
+}
+
+h1 {
+	font-family: 'Baloo', cursive;
+}
+
+.module caption, .inline-group h2 {
+	font-size: 13px;
+}
+
+.module {
+	box-shadow: 0px 1px 10px rgba(1,1,1,0.03);
+	border-radius: 5px;
+	overflow:hidden;
+	padding:10px 15px;
+}
+
+a.section:link, a.section:visited {
+	color: black;
+}
+
+#nav-sidebar .current-app .section:link, #nav-sidebar .current-app .section:visited {
+	color: black;
+}
+
+#nav-sidebar .current-model {
+	background-color: var(--darkened-bg);
+}
+
+/** Header **/
+
+#header, .breadcrumbs, #content, footer {
+	width: 100%;
+}
+
+#header {
+	height: auto;
+	background: white;
+	color: var(--color--primary);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#header a:link, #header a:visited {
+	color:black;
+	font-weight: 400;
+}
+
+#header a:link:hover, #header a:visited:hover {
+	color:var(--color--primary);
+	border-color:var(--color--primary);
+}
+
+div.breadcrumbs, thead th, thead th.sorted {
+	background: var(--color--secondary);
+	color: white;
+}
+
+div.breadcrumbs {
+	background: linear-gradient(to right, var(--color--primary), var(--color--secondary));
+}
+
+table thead th .text a:focus, table thead th .text a:hover, .object-tools a:link, .object-tools a:visited, .button, input[type=submit], input[type=button], .submit-row input, a.button, .button.default, input[type=submit].default, .submit-row input.default {
+	background:linear-gradient(to right, var(--color--primary), var(--color--secondary));
+	-webkit-transition: all 0.25s ease-in-out 0s;
+	transition: all 0.25s ease-in-out 0s;
+}
+
+/** Boutons **/
+
+.button:active, input[type=submit]:active, input[type=button]:active, .button:focus, input[type=submit]:focus, input[type=button]:focus, .button:hover, input[type=submit]:hover, input[type=button]:hover, .button.default:active, input[type=submit].default:active, .button.default:focus, input[type=submit].default:focus, .button.default:hover, input[type=submit].default:hover, .object-tools a:link:hover {
+	background:linear-gradient(to right, var(--color--primary), var(--color--secondary));
+	transform: scale(1.04);
+}
+
+.submit-row a.deletelink {
+	height: auto;
+}
+
+.submit-row a.deletelink:hover {
+	transform: scale(1.04);
+}
+
+.object-tools a.viewsitelink, .object-tools a.golink, .object-tools a.addlink {
+	padding-right: 12px;
+}
+
+.object-tools a:link, .object-tools a:visited {
+	color: white;
+}
+
+a:link, a:visited {
+	color: var(--color--primary);
+}
+
+thead th a:link, thead th a:visited {
+	color:white;
+}
+
+td, th {
+	border: none;
+}
+
+#content-related {
+	background: white;
+}
+
+.form-row {
+	padding-left: 20px;
+}
+
+.admin__logo {
+	width: 90px !important;
+	height: auto;
+}
+
+#branding {
+	height: auto;
+	line-height: 1;
+}
+
+/** Footer **/
+
+footer {
+	background: white;
+	margin-top: auto;
+}
+
+.footer__logo {
+	width: 105px;
+	margin: 15px 0px 15px 40px;
+}
+
+/* Reset dark theme */
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--primary: #79aec8;
+		--secondary: #417690;
+		--accent: #f5dd5d;
+		--primary-fg: #fff;
+
+		--body-fg: #333;
+		--body-bg: #fff;
+		--body-quiet-color: #666;
+		--body-loud-color: #000;
+
+		--header-color: #ffc;
+		--header-branding-color: var(--accent);
+		--header-bg: var(--secondary);
+		--header-link-color: var(--primary-fg);
+
+		--breadcrumbs-fg: #c4dce8;
+		--breadcrumbs-link-fg: var(--body-bg);
+		--breadcrumbs-bg: var(--primary);
+
+		--link-fg: #447e9b;
+		--link-hover-color: #036;
+		--link-selected-fg: #5b80b2;
+
+		--hairline-color: #e8e8e8;
+		--border-color: #ccc;
+
+		--error-fg: #ba2121;
+
+		--message-success-bg: #dfd;
+		--message-warning-bg: #ffc;
+		--message-error-bg: #ffefef;
+
+		--darkened-bg: #f8f8f8;
+		--selected-bg: #e4e4e4;
+		--selected-row: #ffc;
+
+		--button-fg: #fff;
+		--button-bg: var(--primary);
+		--button-hover-bg: #609ab6;
+		--default-button-bg: var(--secondary);
+		--default-button-hover-bg: #205067;
+		--close-button-bg: #888;
+		--close-button-hover-bg: #747474;
+		--delete-button-bg: #ba2121;
+		--delete-button-hover-bg: #a41515;
+
+		--object-tools-fg: var(--button-fg);
+		--object-tools-bg: var(--close-button-bg);
+		--object-tools-hover-bg: var(--close-button-hover-bg);
+	}
+}

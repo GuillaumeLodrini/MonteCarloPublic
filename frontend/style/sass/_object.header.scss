@@ -1,0 +1,28 @@
+.header{
+    background-color: $color-quaternary;
+    border-bottom: 1px solid $color-grey-border;
+    padding: make_em(20,14) 0;
+    position: relative;
+}
+
+.header--img{
+    margin-left: make_em(70,14);
+    height: auto;
+    max-width: 40%;
+}
+
+.header__breadcrumb{
+    width: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.header__menu{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-left: make_em(40,14);
+    width: calc(50% - 40px);
+}

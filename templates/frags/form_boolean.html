@@ -1,0 +1,13 @@
+{% load widget_tweaks i18n %}
+
+<div>
+    <label class="{{ input_class }}" for="{{ form_input.auto_id }}">{{ form_input }}{{ label }}</label>
+
+    {% if form_input.errors %}
+        <div class="input__error input__error--small">
+            {% for error in form_input.errors %}
+                {{ error|escape }}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>

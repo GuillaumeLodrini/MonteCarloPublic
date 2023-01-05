@@ -1,0 +1,47 @@
+{% load static i18n %}
+{% load render_bundle from webpack_loader %}
+{% load settings_tags cms_tags %}
+
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		{% settings_value 'DEBUG' as is_debug %}
+		{% if is_debug %}
+			<meta name="robots" content="noindex, nofollow">
+		{% endif %}
+
+		{% render_bundle 'vendors' 'css' %}
+		{% render_bundle 'main' 'css' %}
+
+		<title>{% block title %}{% endblock %}MonteCarlo</title>
+	</head>
+
+	<body>
+
+		{% if messages %}
+			{% include 'frags/feedback_message.html' with messages_list=messages %}
+		{% endif %}
+		
+		<header>
+			{% block header %}{% endblock%}
+		</header>
+
+		{% block content %}{% endblock %}
+
+		{% cms_save "Enregistrer" %}
+
+		<footer>
+			{% block footer %}{% endblock%}
+		</footer>
+
+		{% block javascript %}
+			{% render_bundle 'cms_edit' %}
+			{% render_bundle 'vendors' 'js' %}
+			{% render_bundle 'main_script' 'js' %}
+		{% endblock %}
+	</body>
+</html>

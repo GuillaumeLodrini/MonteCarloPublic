@@ -1,0 +1,85 @@
+a{
+  text-decoration: none;
+  color: blue;
+  @include transition_css(all, 0.2s, ease-in-out,0s);
+  line-height: 1.2;
+}
+
+.link{
+  color: $color-secondary;
+  font-weight: 400;
+  position: relative;
+  z-index: 3;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  @include transition_css(all, 0.2s, ease-in-out,0s);
+
+  svg{
+    @include transition_css(all, 0.2s, ease-in-out,0s);
+    height: auto;
+    max-height: 15px;
+    width: auto;
+    max-width: 12px;
+    margin-right: make_em(10,14);
+
+    path{
+      fill: $color-secondary;
+    }
+  }
+
+  &:hover{
+    color: darken($color-secondary, 10%);
+
+    svg path{
+      fill: darken($color-secondary, 10%);
+    }
+  }
+}
+
+.link--danger{
+  font-weight: 400;
+  color: $color-danger;
+
+  &:hover{
+    color: darken($color-danger, 10%);
+  }
+}
+
+.link--underline{
+  text-decoration: underline;
+}
+
+.links__container{
+  margin-top: make_em(30,14);
+  justify-content: flex-end;
+
+  .link+.link{
+    margin-left: make_em(20,14);
+  }
+}
+
+.links__container-less{
+  margin-top: make_em(10,14);
+  justify-content: flex-end;
+
+  .link+.link{
+    margin-left: make_em(20,14);
+  }
+}
+
+.link--delete{
+  color: $color-grey-blue;
+
+  svg path{
+    fill: $color-grey-blue;
+  }
+
+  &:hover{
+    color: $color-danger;
+
+    svg path{
+      fill: $color-danger;
+    }
+  }
+}

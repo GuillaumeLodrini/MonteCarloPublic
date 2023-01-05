@@ -1,0 +1,6 @@
+.text-cut{
+	white-space: nowrap;
+	overflow: hidden;
+	-o-text-overflow: ellipsis; /* pour Opera 9 */
+  	text-overflow: ellipsis; /* pour le reste du monde */
+}

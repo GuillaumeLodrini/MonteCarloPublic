@@ -1,0 +1,116 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ *
+ *
+ * GENERIC
+ *
+ * BASE
+
+ *
+ * OBJECTS
+
+ *
+ * COMPONENTS
+
+ *
+ * TRUMPS
+
+ */
+
+
+
+/**
+ * #SETTINGS
+ */
+@import "../bower_components/inuit-defaults/settings.defaults";
+@import "settings.colors";
+@import "settings.fonts";
+@import "../bower_components/inuit-responsive-settings/settings.responsive";
+
+
+
+
+
+/**
+ * #TOOLS
+ */
+@import "../bower_components/inuit-functions/tools.functions";
+@import "../bower_components/inuit-mixins/tools.mixins";
+@import "../bower_components/inuit-responsive-tools/tools.responsive";
+@import "tools.mixins";
+@import "tools.scummizer";
+@import "tools.resetform";
+
+
+
+
+
+/**
+ * #GENERIC
+ */
+@import "../bower_components/inuit-normalize/generic.normalize";
+@import "../bower_components/inuit-reset/generic.reset";
+@import "../bower_components/inuit-box-sizing/generic.box-sizing";
+
+
+
+
+
+
+/**
+ * #BASE
+ */
+@import "base.page";
+@import "base.headings";
+@import "base.links";
+@import "base.texts";
+
+
+
+
+
+
+
+/**
+ * #OBJECTS
+ */
+@import "../bower_components/inuit-list-inline/objects.list-inline";
+@import "object.wrappers";
+@import "object.footer";
+@import "object.header";
+@import "object.column";
+@import "object.bouton";
+@import "object.form";
+@import "object.message";
+
+
+/**
+ * #COMPONENTS
+ */
+
+/**
+ * #TRUMPS
+ */
+@import "../bower_components/inuit-clearfix/trumps.clearfix";
+$inuit-use-fractions:   false;
+@import "../bower_components/inuit-widths/trumps.widths";
+$inuit-enable-margins:          true;
+$inuit-enable-margins--huge:    true;
+$inuit-enable-margins--none:    true;
+@import "../bower_components/inuit-spacing/trumps.spacing";
+@import "trumps.hide";
+@import "trumps.text-cut";
+
+
+/**
+ * #CMS
+ */
+ @import "cms";

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% translate 'Connexion' %} | {% endblock %}
+
+{% block content %}
+  <main class="password__container column column--centered column--centered-w">
+    <div class="password__box">
+      <div class="password__title">
+        <h1 class="title">{% translate 'Connexion' %}</h1>
+      </div>
+
+      <form class="password__content" method="POST">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+          {% include 'frags/form_dialog_error.html' with errors_list=form.non_field_errors %}
+        {% endif %}
+
+        <div class="form__line">
+          {% include 'frags/form_inputs.html' with form_input=form.username input_placeholder='Votre adresse email' input_class='input' input_label='Adresse email' %}
+        </div>
+
+        <div class="form__line">
+          {% include 'frags/form_inputs.html' with form_input=form.password input_placeholder='Votre mot de passe' input_class='input' input_label='Mot de passe' %}
+        </div>
+
+        <div class="section--centered">
+          <input class="btn btn--primary btn--full" type="submit" value="{% translate 'Connexion' %}" />
+          <a class="password__forgot" href="{% url 'password_reset' %}">{% translate 'Mot de passe oublié&nbsp;?' %}</a>
+        </div>
+      </form>
+    </div>
+  </main>
+{% endblock %}

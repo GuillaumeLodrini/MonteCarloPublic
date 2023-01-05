@@ -1,0 +1,5 @@
+<option value="">{% if placeholder %}{{ placeholder }}{% else %}---------{% endif %}</option>
+
+{% for elt in list %}
+    <option value="{{ elt.pk }}">{{ elt.value }}</option>
+{% endfor %}
